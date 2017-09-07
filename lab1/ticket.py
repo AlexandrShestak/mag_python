@@ -14,9 +14,9 @@ def happy_number(number):
 
 def is_lucky_ticket(number):
     nearest_higher = number
-    nearest_lower = number
+    nearest_lower = 0
 
-    for x in xrange(number, 999999):
+    for x in xrange(number, 1000000):
         if happy_number(x):
             nearest_higher = x
             break
