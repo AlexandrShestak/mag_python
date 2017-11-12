@@ -1,0 +1,12 @@
+{
+  "predatorMaxAge": 3,
+  "victimMaxAge": 3,
+  "predatorDuplicationTime": 2,
+  "victimDuplicationTime": 2,
+  "predatorStarvationTime": 3,
+  "mapSize": 10,
+  "initialPredatorCount": 10,
+  "initialVictimCount": 10,
+  "initialBarrierCount": 10,
+  "mapName": "map"
+}
