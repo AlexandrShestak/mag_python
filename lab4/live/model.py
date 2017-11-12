@@ -26,12 +26,11 @@ class Barrier(object):
     pass
 
 
-def read_map(configuration_name):
+def read_map(configuration_name, iterations_count):
     with open(configuration_name) as config:
         data = json.load(config)
 
         predator_max_age = data['predatorMaxAge']
-        victim_max_age = data['victimMaxAge']
         predator_duplication_time = data['predatorDuplicationTime']
         victim_duplication_time = data['victimDuplicationTime']
         predator_starvation_time = data['predatorStarvationTime']
@@ -51,7 +50,7 @@ def read_map(configuration_name):
                         live_map[row][column] = Predator(predator_max_age, predator_duplication_time,
                                                          predator_starvation_time)
                     elif elem == "V":
-                        live_map[row][column] = Victim(victim_max_age, victim_duplication_time)
+                        live_map[row][column] = Victim(iterations_count, victim_duplication_time)
                     elif elem == "B":
                         live_map[row][column] = Barrier()
             row += 1
@@ -114,7 +113,7 @@ def write_result_to_file(live_map, map_size, result_name):
 
 
 def generate_live(iterations_count, configuration_name, result_name):
-    live_map, map_size, predator_count, victim_count = read_map(configuration_name)
+    live_map, map_size, predator_count, victim_count = read_map(configuration_name, iterations_count)
     for live_age in xrange(0, iterations_count):
 
         # stop live if all predators or victims were died

@@ -1,6 +1,5 @@
 {
   "predatorMaxAge": 3,
-  "victimMaxAge": 3,
   "predatorDuplicationTime": 2,
   "victimDuplicationTime": 2,
   "predatorStarvationTime": 3,
