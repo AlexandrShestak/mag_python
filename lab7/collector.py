@@ -42,7 +42,9 @@ class Action(object):
         self.is_critical = is_critical
 
 
-def action(every_k=0, index_list=[], call_always=False, priority=0, name='', max_called_times=0, is_critical=False):
+def action(every_k=0, index_list=None, call_always=False, priority=0, name='', max_called_times=0, is_critical=False):
+    index_list = index_list if index_list is not None else []
+
     def inner_decorator(func):
         sys.modules['collector'].registry.append(Action(func, every_k, index_list, call_always, priority,
                                                         name if name else func.__name__, max_called_times, is_critical))
